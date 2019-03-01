@@ -1,0 +1,11 @@
+n=int(input())
+for i in range(2,n):
+     if(n%i==0):
+	     m=1
+	     break
+     else:
+	     m=0
+if(m==0):
+    print("Yes")
+else:
+    print("No")
