@@ -1,0 +1,24 @@
+l=int(input("enter a number"))
+ln=len(str(abs(l)))
+print("length=",ln)
+if ln<4:
+   if ln==1:
+      print(l)
+   else:
+       if ln==2:
+          m=l%10
+          n=l%100
+          p=[n-m,m]
+          w=(n-m)+m
+       else :
+            if ln==3:
+               m=l%10        
+               n=l%100
+               o=l%1000
+               p=[o-n,n-m,m]
+               w=(o-n)+(n-m)+(m)
+
+       print("modulus list form",p)
+       print("addition of list elements",w)
+else:
+    print("enter a number with a max length of 3")
