@@ -1,0 +1,45 @@
+l=int(input("enter a number"))
+ln=len(str(abs(l)))
+print("length=",ln)
+if ln<4:
+   if ln==1:
+      print(l)
+   else:
+       if ln==2:
+          m=l%10
+          n=l%100
+          p=[n-m,m]
+          a=(n-m)/10
+          b=m
+          e=a*a
+          f=b*b
+          g=e+f
+          if g==l:
+              print("it is amstrong number")
+          else:
+              print("it is not amstrong number")
+          #w=(n-m)+m
+          
+       else :
+            if ln==3:
+               m=l%10  
+               n=l%100
+               o=l%1000
+               p=[o-n,n-m,m]
+               a=(o-n)/100
+               b=(n-m)/10
+               c=m
+               h=(a*a)*a
+               i=(b*b)*b
+               j=(c*c)*c
+               k=h+i+j
+               if k==l:
+                   print("it is amstrong number")
+               else:
+                   print("it is not amstrong number")
+               #w=(o-n)+(n-m)+(m)
+
+       #print("modulus list form",p)
+       #print("addition of list elements",w)
+else:
+    print("enter a number with a max length of 3")
