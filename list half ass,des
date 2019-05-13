@@ -1,15 +1,16 @@
-n=input()
+n=int(input())
 l=list(map(int,input().split()))
 l.sort()
+a=n//2
 m=[]
 o=[]
-m=l[0:4]
-o=l[4:8]
+m=l[0:a]
+o=l[a:n]
 o.reverse()
 p=[]
-for i in range(0,4):
+for i in range(0,a):
      p.append(m[i])
-for i in range(0,4):
+for i in range(0,a):
      p.append(o[i])
 for i in p:
      print(i,end=' ')
