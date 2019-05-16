@@ -1,0 +1,15 @@
+a=list(map(int,input().split()))
+b=list(map(int,input().split()))
+c=[]
+f=[]
+d=len(a)
+e=len(b)
+h=d+e
+c=a+b
+f=set(c)
+g=len(f)
+if h!=g:
+    for i in f:
+        print(i,end=" ")
+else:
+    print("-1")
