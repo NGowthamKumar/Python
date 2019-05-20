@@ -1,0 +1,4 @@
+def si(p,t,r=0.09):
+    res=(p*t*r)/100
+    return res
+print(si(100,10))
