@@ -1,0 +1,17 @@
+n=input()
+f=0
+a=1
+c=0
+for i in n:
+    if(i!=" "):
+        f=f+1
+    else:
+        a=a+1
+for j in n:
+    if (j[0].isupper()):
+        c=c+1
+print("no of cap words",c)
+print("characters",f)
+print("words",a)
+n=n.title()
+print(n)
