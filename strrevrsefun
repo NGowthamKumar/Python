@@ -1,0 +1,8 @@
+def reverse(str):
+    if (len(str)==0):
+        return
+    temp=str[0]
+    reverse(str[1:])
+    print(temp,end='')
+a="gowtham"
+reverse(a)
