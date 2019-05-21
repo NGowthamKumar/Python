@@ -1,0 +1,38 @@
+a=[]
+max=5
+top=0
+def push(ele):
+    global top
+    if(top==max-1):
+        print("stack overflow")
+    else:
+        top+=1
+        a.append(ele)
+def pop():
+    global top
+    if(top==-1):
+        print("stack underflow")
+    else:
+        print("deleted ele",a.pop())
+        top-=1
+def display():
+    global top
+    if(top==-1):
+        print("stack empty")
+    else:
+        for i in a:
+            print(i)
+while(1):
+    print("1 push 2 pop 3 display 4 exit")
+    ch=int(input("enter the choice"))
+    if(ch==1):
+        ele=input("enter ele")
+        push(ele)
+    elif(ch==2):
+        pop()
+    elif(ch==3):
+        display()
+    elif(ch==4):
+         break
+    else:
+        print("invalid choice") 
