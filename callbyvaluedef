@@ -1,0 +1,11 @@
+def swap():
+    a,b=b,a
+    print("inside definition")
+    print("a=",a)
+    print("b=",b)
+a=5
+b=6
+swap(a,b)
+print("inside main")
+print("a=",a)
+print("b=",b)
