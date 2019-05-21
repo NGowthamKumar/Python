@@ -1,0 +1,56 @@
+max=5
+a=[None]*max
+f=0
+r=-1
+def isempty():
+    global f,r
+    if(f>r):
+        return 1
+    else:
+        return 0 
+def isfull():
+    if(r==max-1):
+        return 1
+    else:
+        return 0
+def enqueue(ele):
+    global r
+    r+=1
+    a[r]=ele
+    
+def dequeue():
+    global f,r
+    print("deleted element=",a[f])
+    a[f]=None
+    f+=1    
+    if(f>r):
+        f=0
+        r=-1
+
+def display():
+    global f,r
+    for i in range(f,r+1):
+        print(a[i])
+while(1):
+    print("1.push 2.pop 3.display 4.exit")
+    ch=int(input("Enter the choice"))
+    if(ch==1):
+        if(isfull()==1):
+            print("queue is full")
+        else:
+            ele=input("enter ele")
+            enqueue(ele)
+    elif(ch==2):
+        if(isempty()==1):
+            print("queue empty")
+        else:
+            dequeue()
+    elif(ch==3):
+        if(isempty()==1):
+            print("queue is empty")
+        else:
+            display()
+    elif(ch==4):
+        break
+    else:
+        print("invalid")
