@@ -1,0 +1,7 @@
+def mod(l):
+    l.append(77)
+    l.append(88)
+    print(l)
+l=[1,2,3]
+mod(l)
+print("inside main",l)
