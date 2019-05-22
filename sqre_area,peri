@@ -1,0 +1,14 @@
+class square:
+    def __init__(self,l):
+        self.len=l
+        self.area=0
+    def calc_area(self):
+        self.area=self.len**2
+        print("area of square",self.area)
+    def calc_peri(self):
+        self.perimeter=self.len*4
+        print("peri",self.perimeter)
+        
+ob=square(5)
+ob.calc_area()
+ob.calc_peri()
