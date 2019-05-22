@@ -1,0 +1,77 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class Singlelinked:
+    def __init__(self):
+        self.headval=None
+        
+    def insertend(self,data):
+        temp=Node(data)
+        if(self.headval==None):
+            self.headval=temp
+        else:
+            traverse=self.headval
+            while traverse.next is not None:
+                traverse=traverse.next
+            traverse.next=temp
+            
+    def insertbegin(self,data):
+        temp=Node(data)
+        if(self.headval==None):
+            self.headval=temp
+        else:
+            temp.next=self.headval
+            self.headval=temp
+            
+    def deleteatbegin(self):
+        if(self.headval==None):
+            print("list is empty")
+        else:
+            temp=self.headval
+            self.headval=self.headval.next
+            del temp
+        self.count-=1
+            
+    def insertpos(self,ele,pos):
+        temp=Node(ele)
+        prev=None
+        current=self.headval
+        i=1
+        while(i<pos):
+            prev=current
+            current=current.next
+            i+1
+        prev.next=temp
+        temp.next=current
+        self.count+=1
+            
+    def printt(self):
+        temp=self.headval
+        if(temp==None):
+            print("list is empty")
+        else:
+            while temp is not None:
+                print(temp.data)
+                temp=temp.next
+
+ob=Singlelinked()
+while(True):
+    ch=int(input("insert 1.begin 2.end 3.pos 4.diplay 5.delete at begining"))
+    if(ch==1):
+        ele=int(input("enter ele"))
+        ob.insertbegin(ele)
+    elif(ch==2):
+        ele=int(input("enter ele"))
+        ob.insertend(ele)
+    elif(ch==3):
+        pos=int(input("enter pos"))
+        if(pos<=ob.count):
+            ele=int(input("enter ele"))
+            ob.insertpos(ele,pos)
+        else:
+            print("valid pos")
+    elif(ch==4):
+        ob.printt()
+    elif(ch==5):
+        ob.deleteatbegin()
