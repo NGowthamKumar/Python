@@ -1,0 +1,21 @@
+class employe:
+    def __init__(self,n="",id="",sal=0):
+        self.name=n
+        self.id=id
+        self.salary=sal
+    '''def getdetails(self,n="",id="",sal=0,des="",dep=""):
+        self.name=input("enter name")
+        self.id=int(input("enter id"))
+        self.salary=int(input())'''
+class manager:
+    def __init__(self,n='',id='',sal=0,des='',dep=''):
+        self.employee=employe(n,id,sal)
+        self.designation=des
+        self.department=dep
+        
+    def managerdetails(self):
+        print("manager name",self.employee.name,self.employee.id,self.employee.salary,self.designation,self.department)
+
+
+ob=manager("r","11",78,"as manager","lifescience")
+ob.managerdetails()
