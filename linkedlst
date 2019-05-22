@@ -1,0 +1,34 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class Singlelinked:
+    def __init__(self):
+        self.headval=None
+        
+    def insertend(self,data):
+        temp=Node(data)
+        if(self.headval==None):
+            self.headval=temp
+        else:
+            traverse=self.headval
+            while traverse.next is not None:
+                traverse=traverse.next
+            traverse.next=temp
+            
+            
+    def printt(self):
+        temp=self.headval
+        if(temp==None):
+            print("list is empty")
+        else:
+            while temp is not None:
+                print(temp.data)
+                temp=temp.next
+
+ob=Singlelinked()
+ob.insertend(11)
+ob.insertend(40)
+ob.insertend(70)
+ob.insertend(90)
+ob.printt()
