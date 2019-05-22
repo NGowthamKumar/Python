@@ -1,0 +1,32 @@
+class student:
+    def __init__(self,n="",rn=0,ph="",mid="",mk=[]):
+        self.name=n
+        self.rollno=rn
+        self.phone=ph
+        self.email=mid
+        self.markslist=mk
+    def gettotal(self):
+        total=0
+        for x in self.markslist:
+            total +=x
+        print("total",total)
+        return total
+    def getaverage(self):
+        total=self.gettotal()
+        n=len(self.markslist)
+        average=total/n
+        print("average",average)
+        '''else:
+            print("no marks found")'''
+name=input("enter name")
+rollno=int(input("enter roll no"))
+phone=input("enter ph no")
+email=input("enter email")
+print("please enter three marks")
+m=[]
+for i in range(3):
+    marks=int(input("enter the marks"))
+    m.append(marks)
+
+ob=student(name,rollno,phone,email,m)
+ob.getaverage()
