@@ -1,0 +1,18 @@
+class wishlist:
+    def __init__(self):
+        self.id=0
+        self.name=""
+        self.quantity=0
+        self.price=0
+    def getdetails(self):
+        self.id=int(input("enter item id "))
+        self.name=input("enter item name ")
+        self.quantity=int(input("enter item quantity "))
+        self.price=int(input("enter item price "))
+    def gettotal(self):
+        total=self.price*self.quantity
+        print("total price",total)
+    
+ob=wishlist()
+ob.getdetails()
+ob.gettotal()
