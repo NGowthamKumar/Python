@@ -1,0 +1,18 @@
+N=list(map(int,input().split()))
+pp=list(map(int,input().split()))
+kp=list(map(int,input().split()))
+kp.sort()
+min=[]
+for i in range(len(pp)):
+    if(pp[i]<N[2]):
+        for j in kp:
+            if(j>pp[i] and j<=N[2]):
+                m=N[2]-pp[i]
+                min.append(m)
+    else:
+        for j in kp:
+            if(j>=N[2] and j<pp[i]):
+                mi=pp[i]-N[2]
+                min.append(mi)
+min.sort()
+print(min[-1])
