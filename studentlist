@@ -1,0 +1,72 @@
+class candidate:
+    def __init__(self,data):
+        self.prev=None
+        self.name=None
+        self.next=None
+        self.roll=None
+        
+    def insertend(self,name,rollno):
+        temp=Node(name,rollno)
+        if(self.headval==None):
+            self.headval=temp
+        else:
+            traverse=self.headval
+            while traverse.next is not None:
+                traverse=traverse.next
+            traverse.next=temp
+            temp.prev=traverse
+        self.count+=1
+        
+    def insertbegin(self,name,rollno):
+        temp=Node(name,rollno)
+        while(traverse.next is not none):
+            if(traverse.name is key):
+                break
+            traverse=traverse.next
+        if(traverse.name == key):
+            a=traverse.prev
+            a.next=temp
+            temp.prev=a
+            temp.next=traverse
+            traverse.prev=temp
+            self.count+=1
+        else:
+            print("key is not found")
+                
+    def printt(self):
+        temp=self.headval
+        if(temp==None):
+            print("list is empty")
+        else:
+            while temp is not None:
+                print("name ",temp.name)
+                print("roll no",temp.rollno)
+                temp=temp.next 
+                
+                
+                
+                
+ob=candidate
+while(True):
+    print("1.insert record at the end")
+    print("2.insert record at the before")
+    print("3.insert record at the after")
+    print("4.display all records")
+    print("exit")
+    ch=int(input("entr the choice"))
+    if(ch==5):
+        break
+    if(ch==4):
+        ob.printt()
+    name=input("pls enter the name")
+    rollno=input("enter the roll no")
+    if(ch==1):
+        ob.insertend(name,rollno)
+    elif(ch==2):
+        key=input("insert record before")
+        ob.insertbegin(name,roll,key)
+    elif(ch==3):
+        key=input("insert record after")
+        ob.insertend(name,roll,key)
+    else:
+        print("enter valid choice")
