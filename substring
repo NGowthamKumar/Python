@@ -1,0 +1,6 @@
+k=input()
+k=set(k)
+l=''
+for i in k:
+    l+=i
+print(len(l))
