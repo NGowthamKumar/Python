@@ -1,0 +1,13 @@
+a=input()
+k=int(input())
+b=[]
+for i in range(0,26):
+    b.append(chr(i+97))
+for i in range(0,k):
+    b.append(chr(i+97))
+for i in a:
+    if i==" ":
+        print(" ",end="")
+    else:
+        j=b.index(i)
+        print(b[j+k],end="")
