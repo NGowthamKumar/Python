@@ -1,0 +1,13 @@
+a=int(input())
+b=list(map(int,input().split(" ")))
+e=0
+d=[]
+for i in range(0,len(b)):
+    if b[i]>b[i+1]:
+        if e=0:
+            c=b[i+1]
+            d.append(b.index(b[i+1]))
+        else:
+            d.append(b.index(b[i]))
+    e=e+1
+print(d)
