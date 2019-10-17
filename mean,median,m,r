@@ -1,0 +1,16 @@
+a=list(map(int,input("enter the list of numbers ").split(" ")))
+c=len(a)
+b=sum(a)/c
+y=[]
+print("mean",b)
+d=c//2
+for i in a:
+    y.append(a.count(i))
+e=y.index(max(y))
+print("mode=",a[e])
+a.sort()
+if c%2!=0:
+    print("median=",a[d])
+else:
+    print("median=",(a[d]+a[d-1])/2)
+print("range=",a[-1]-a[0])
