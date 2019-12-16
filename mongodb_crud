@@ -1,0 +1,105 @@
+const express=require('express');
+const app=express();
+const mongoose = require("mongoose");
+app.use(express.urlencoded({ extended : true}));
+app.use(express.json());
+
+//connecting mongodb using mongoose
+mongoose.connect('mongodb://localhost:27017/mydb',{'useUnifiedTopology' : true , 'useNewUrlParser' : true},function(error){
+if(error){console.error('Error : unable to connect mongodb\n'+error.toString());}
+else{console.error('Mongodb connected successfully');}
+});
+const db = mongoose.connection;
+
+//checking the input types and inserting a collection in mongodb
+app.get('/:name/:id/:mail',function(req,res){
+var a = req.params.name;
+var b = req.params.id;
+var c = req.params.mail;
+var Schema = mongoose.Schema; 
+var xschema = new mongoose.Schema({ name : String, id : Number , mail : String});
+mongoose.model('newxsch',xschema);
+const cli = new newxsch(req.params);
+cli.save(function(err,rr){
+if(err) res.send(err);
+else res.send("added");
+})  
+});
+
+//Inserting document into mongodb
+app.post('/ins',function(req,res){
+const nam = req.body.name;
+const idd = req.body.id;
+const maill = req.body.mail;
+const ar = { name : nam , id : idd , mail : maill };
+db.collection('sampcoll').insertOne(ar,function(err,result){
+if (err){ res.send(err);}
+else {res.send("added");
+db.close();}
+});
+}); 
+
+//finding the document with name
+app.post('/find',function(req,res){
+var namee = req.body.name;
+var query = { name : namee };
+db.collection('sampcoll').find(query).toArray(function(err,doc){
+if (err) { res.send("err"); }
+else { res.send(doc); db.close(); }
+});
+});
+
+//updating the document with id
+app.post('/update',function(req,res){
+    var idd = req.body.id;
+    var namee = req.body.name;
+    var maill = req.body.mail;
+    db.collection('sampcoll').updateOne({"id": idd},{ $set : { name : namee , mail : maill } },function(err,result){
+        if (err) res.send("error");
+        else {res.send("updated...");
+        db.close();
+    }});
+});
+
+//deleting document with id
+app.post('/del',function(req,res){
+var idd = req.body.id;
+db.collection('sampcoll').deleteOne({"id" : idd },function(err,result){
+    if(err) res.send("error");
+    else { res.send("deleted");
+    db.close();}
+}); 
+});
+
+//deleting many docs using name
+app.post('/delm',function(req,res){
+var nam = req.body.name;
+db.collection('sampcolls').deleteMany({"name" : nam },function(err,result){
+if(err) res.send("error");
+else { res.send("deleted");
+db.close();}
+});
+});
+
+//updating many documents with id
+app.post('/updatem',function(req,res){
+var idd = req.body.id;
+var namee = req.body.name;
+var maill = req.body.mail;
+db.collection('sampcoll').updateMany({"id": {$gt : idd}},{ $set : { name : namee , mail : maill } },function(err,result){
+if (err) res.send("error");
+else { res.send("updated...");
+db.close();}
+});
+});
+    
+//deleting a collection in a database
+app.get('/delcol/:name',function(req,res){
+var collection_name = req.params.name;
+db.collection(collection_name).drop(function(err,ok){
+if (err) res.send("error");
+else res.send("dropped");
+});
+});
+
+app.listen(8000);
