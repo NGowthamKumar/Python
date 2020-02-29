@@ -1,0 +1,14 @@
+def is_part_of_series(lst):
+    a = len(lst)
+    e = 0
+    for i in range(2, a):
+        b = lst[i - 2]
+        c = lst[i - 1]
+        d = lst[i]
+        if (d == (2 * c) - (2 * b)):
+            e = e+1
+    if a - 2 == e:
+        print("Follows the series")
+    else:
+        print("Does not follow the series")
+    
