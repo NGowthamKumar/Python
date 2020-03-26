@@ -1,0 +1,6 @@
+a=input()
+print(any(map(str.isalnum, a)))
+print(any(map(str.isalpha, a)))
+print(any(map(str.isdigit, a)))
+print(any(map(str.islower, a)))
+print(any(map(str.isupper, a)))
