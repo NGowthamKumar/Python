@@ -1,0 +1,14 @@
+def merge_the_tools(string, k):
+    a=list(string)
+    c=[[]for i in range(k)]
+    d=0
+    f=k
+    for i in c:
+        w=a[slice(d,k)]
+        for o in w:
+            i.append(o)
+        d=d+f
+        k=k+f
+    for i in c:
+        i = list(dict.fromkeys(i))
+        print("".join(i))
