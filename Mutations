@@ -1,0 +1,7 @@
+def mutate_string(string, position, character):
+    b=position
+    d=list(string)
+    d.insert(b,character)
+    frst = d[slice(0,b+1)]
+    scnd = d[slice(b+2,len(d))]
+    return "".join(frst) + "".join(scnd)
