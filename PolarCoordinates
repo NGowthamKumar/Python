@@ -1,0 +1,6 @@
+import cmath
+a=input()
+print(a)
+b=cmath.polar(complex(a))
+print(b[0])
+print(b[1])
