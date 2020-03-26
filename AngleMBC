@@ -1,0 +1,4 @@
+import math
+a=list(int(input()) for i in range(2))
+b=math.degrees(math.atan2(a[0],a[1]))
+print(int(b),end=u'\N{DEGREE SIGN}')
