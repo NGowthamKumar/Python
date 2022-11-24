@@ -1,0 +1,9 @@
+import random
+import pyautogui as pg
+import time
+a=('Dog','Buffalo','Pig','Elephant')
+time.sleep(8)
+for i in range(100):
+    b=random.choice(a)
+    pg.write("you are a "+b)
+    pg.press('enter')
