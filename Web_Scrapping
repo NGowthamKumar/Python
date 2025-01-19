@@ -1,0 +1,48 @@
+import requests
+from bs4 import BeautifulSoup
+from textblob import TextBlob
+
+# Stocks to track
+stocks = ["Tata Steel", "HCL", "Reliance Industries", "Vedanta", "Netweb Technologies"]
+
+# Target website URL
+url = "https://money.rediff.com/news"
+
+# Headers to mimic a browser visit
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+}
+
+# Fetch the webpage
+response = requests.get(url, headers=headers)
+
+# Check if request was successful
+if response.status_code == 200:
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    # Locate the "Share Market News" section
+    news_section = soup.find("div", {"class": "div_topnews"})  # Adjust class if needed
+
+    if news_section:
+        # Find all <li> elements inside <ul>
+        news_list = news_section.find("ul")
+        news_items = news_list.find_all("li") if news_list else []
+
+        print("\n🔹 Latest Share Market News:\n")
+        for idx, item in enumerate(news_items, start=1):
+            title = item.get_text(strip=True)  # Extract text from <li>
+
+            # Check if any stock is mentioned in the news
+            for stock in stocks:
+                if stock.lower() in title.lower():
+                    # Perform Sentiment Analysis
+                    sentiment_score = TextBlob(title).sentiment.polarity
+                    sentiment = "Positive 😊" if sentiment_score > 0 else "Negative 😡" if sentiment_score < 0 else "Neutral 😐"
+
+                    print(f"{idx}. {title} 🔍 **Related to {stock}** → **{sentiment}**")
+
+    else:
+        print("❌ 'Share Market News' section not found. Check the website structure.")
+
+else:
+    print("❌ Failed to retrieve the webpage. Status Code:", response.status_code)
